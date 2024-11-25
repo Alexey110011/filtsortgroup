@@ -1,0 +1,66 @@
+<mvc:View 
+	controllerName="JSONModel.controller.View1"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:dnd="sap.ui.core.dnd"
+	displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}" id = "cont">
+				<content>
+					<SearchField search = "onFilter"/>
+					<Table 
+						id = "myTable"
+						items = "{
+						path:'/products', 
+						sorter:{
+							path:'region',
+							group:true
+						}
+						}">
+						<columns>
+							<Column id="nameColumn0">
+								<Text text="Product" id="productId"/>
+							</Column>
+							<Column id="nameColumn">
+								<Text text="name" id="nameId"/>
+							</Column>
+							<Column id = "nameColumn2">
+								<Text text="price" id="priceId"/>
+							</Column>
+							<Column id = "nameColumn3">
+								<Text text="region" id="regionId"/>
+							</Column>
+						</columns>
+				
+						<!--<DragDropInfo>
+							<dnd:DragDropConfig
+							sourceAggregation = "items"
+							targetElement = "items"
+							dropPosition = "Between"
+							drop = ".onDrop"
+							/>
+						</DragDropInfo>-->
+					
+						<items>
+							<ColumnListItem
+								type="Navigation"
+								press="onPress">
+								<cells>
+									<ObjectIdentifier
+										title="Product"/>
+									<Text
+										text="{name}"/>
+									<Text
+										text="{price}"/>
+									<Text
+										text="{region}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
